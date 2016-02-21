@@ -1,0 +1,23 @@
+<h1>基本情報</h1>
+    <div class="row">        
+        <div class="col-md-6 col-md-offset-3">
+            <%= form_for(@user) do |f| %>
+            <%= render 'shared/error_messages', object: f.object %>
+            
+            <%= f.label :'ユーザ名' %>
+            <%= f.text_field :name, class: 'form-control' %>
+            
+            <%= f.label :'メールアドレス' %>
+            <%= f.text_field :email, class: 'form-control' %>
+            
+            <%= f.label :'出身地' %>
+            <%= f.text_field :prefecture, class: 'form-control' %>
+            
+            <%= f.label :'プロフィール' %>
+            <%= f.text_area :profile %>
+            
+            <%= f.submit "Update Profile", class: "btn btn-large btn-primary" %>
+            <% end %>
+        </div>
+    </div>
+
