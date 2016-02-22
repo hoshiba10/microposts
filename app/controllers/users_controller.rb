@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   
   def edit
     unless current_user == @user
-      redirect_to root_path
+      redirect_to root_url
     end
   end
   
