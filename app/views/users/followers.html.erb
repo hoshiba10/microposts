@@ -1,0 +1,8 @@
+<h1>フォロワーページ</h1>
+
+        <% @follower_users.each do |follower_user| %>
+            <br>
+            <span class="label label-info"><%= follower_user.name %></span>
+            <br>
+        <% end %>
+

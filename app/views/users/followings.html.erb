@@ -1,0 +1,8 @@
+<h1>フォローページ</h1>
+
+        <% @following_users.each do |following_user| %>
+            <br>
+            <span class="label label-info"><%= following_user.name %></span>
+            <br>
+        <% end %>
+

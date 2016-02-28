@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update]
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :followings, :followers]
   before_action :check_user, only: [:edit, :update]
   
   def show
@@ -32,6 +32,14 @@ class UsersController < ApplicationController
     end
   end
   
+  def followings
+    @following_users = @user.following_users
+  end
+  
+  def followers
+    @follower_users = @user.follower_users
+  end
+  
   private
   
   def user_params
@@ -48,5 +56,4 @@ class UsersController < ApplicationController
         redirect_to root_url
     end
   end
-  
 end
