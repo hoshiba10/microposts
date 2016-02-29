@@ -54,6 +54,6 @@ class UsersController < ApplicationController
   def check_user
       unless current_user == @user
         redirect_to root_url
-    end
+      end
   end
 end

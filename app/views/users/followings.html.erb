@@ -2,7 +2,12 @@
 
         <% @following_users.each do |following_user| %>
             <br>
-            <span class="label label-info"><%= following_user.name %></span>
-            <br>
+            <div class="">
+                <%= gravatar_for following_user %>
+            </div>
+            <div class="label label-info">
+                <%= following_user.name %>
+            </div>
+            <br><br><br><br>
         <% end %>
 
