@@ -4,7 +4,9 @@ class UsersController < ApplicationController
   before_action :check_user, only: [:edit, :update]
   
   def show
-    @microposts = @user.microposts.order(created_at: :desc)
+    @microposts = @user.microposts.order(created_at: :desc).page(params[:page]).per(5)
+    @feed_items = @user.feed_items.includes(:user).order(created_at: :desc).page(params[:page]).per(5)
+      
   end
   
   def new
@@ -33,11 +35,13 @@ class UsersController < ApplicationController
   end
   
   def followings
-    @following_users = @user.following_users
+    @following_users = @user.following_users.page(params[:page]).per(3)
+    @following_items = @user.following_users.includes(:user).order(created_at: :desc).page(params[:page]).per(3)
   end
   
   def followers
-    @follower_users = @user.follower_users
+    @follower_users = @user.follower_users.page(params[:page]).per(3)
+    @follower_items = @user.follower_users.includes(:user).order(created_at: :desc).page(params[:page]).per(3)
   end
   
   private

@@ -3,11 +3,14 @@
         <% @follower_users.each do |follower_user| %>
             <br>
             <div class="">
-                <%= gravatar_for follower_user %>
+                <%= link_to gravatar_for(follower_user, size: 50), follower_user %>
             </div>
             <div class="label label-info">
-                <%= follower_user.name %>
+                <%= link_to follower_user.name, follower_user %>
             </div>
             <br><br><br><br>
         <% end %>
+        
+        <%= paginate @follower_items %>
+
 
